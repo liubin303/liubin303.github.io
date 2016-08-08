@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT,Lucifer,liubin303" />
+  <meta name="keywords" content="iOS,crash," />
 
 
 
@@ -84,12 +84,25 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="lucifer's blog">
-<meta property="og:url" content="https://liubin303.github.io/index.html">
+<meta name="description" content="####什么是崩溃日志？
+一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。
+iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的日志文件，这个文件会保存的特定系统目录下。
+崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生时各线程都在做什么，并分辨出闪退发生在">
+<meta property="og:type" content="article">
+<meta property="og:title" content="崩溃日志解析">
+<meta property="og:url" content="https://liubin303.github.io/2016/08/08/崩溃日志解析/index.html">
 <meta property="og:site_name" content="lucifer's blog">
+<meta property="og:description" content="####什么是崩溃日志？
+一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。
+iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的日志文件，这个文件会保存的特定系统目录下。
+崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生时各线程都在做什么，并分辨出闪退发生在">
+<meta property="og:updated_time" content="2016-08-08T11:03:27.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="lucifer's blog">
+<meta name="twitter:title" content="崩溃日志解析">
+<meta name="twitter:description" content="####什么是崩溃日志？
+一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。
+iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的日志文件，这个文件会保存的特定系统目录下。
+崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生时各线程都在做什么，并分辨出闪退发生在">
 
 
 
@@ -110,9 +123,9 @@
 
 
 
-  <link rel="canonical" href="https://liubin303.github.io/"/>
+  <link rel="canonical" href="https://liubin303.github.io/2016/08/08/崩溃日志解析/"/>
 
-  <title> lucifer's blog </title>
+  <title> 崩溃日志解析 | lucifer's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -133,9 +146,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -252,9 +263,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -274,10 +285,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/08/08/崩溃日志解析/" itemprop="url">
-                  崩溃日志解析
-                </a>
+                崩溃日志解析
               
             
           </h1>
@@ -352,9 +360,7 @@
       
 
       
-        
-          
-            <p>####什么是崩溃日志？</p>
+        <p>####什么是崩溃日志？</p>
 <p>一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。</p>
 <p>iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的日志文件，这个文件会保存的特定系统目录下。</p>
 <p>崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生时各线程都在做什么，并分辨出闪退发生在哪个线程上和相关的原因。</p>
@@ -480,548 +486,101 @@
 <p>crash文件在动态链接库部分查看对应的UUID，，三者UUID一致才能符号化崩溃日志。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">dwarfdump --lookup=0x25dcc458 --arch armv7 SFtest.app.dSYM</div></pre></td></tr></table></figure>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
+        
+  <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+    <div>坚持原创技术分享，您的支持将鼓励我继续创作！</div>
+    <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+      <span>赏</span>
+    </button>
+    <div id="QR" style="display: none;">
+      
+        <div id="wechat" style="display: inline-block">
+          <img id="wechat_qr" src="/images/wechat-reward-image.JPG" alt="lucifer WeChat Pay"/>
+          <p>微信打赏</p>
+        </div>
+      
+      
+        <div id="alipay" style="display: inline-block">
+          <img id="alipay_qr" src="/images/alipay-reward-image.JPG" alt="lucifer Alipay"/>
+          <p>支付宝打赏</p>
+        </div>
+      
     </div>
+  </div>
 
-    <div>
+
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/05/博客搭建教程/" itemprop="url">
-                  博客搭建相关
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-05T10:45:08+08:00" content="2016-08-05">
-              2016-08-05
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
+            <a href="/tags/iOS/" rel="tag">#iOS</a>
           
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/05/博客搭建教程/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/05/博客搭建教程/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/05/博客搭建教程/" class="leancloud_visitors" data-flag-title="博客搭建相关">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
+            <a href="/tags/crash/" rel="tag">#crash</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <h2 id="GitHub-Pages"><a href="#GitHub-Pages" class="headerlink" title="GitHub Pages"></a>GitHub Pages</h2><p>GitHub Pages 可以被认为是用户编写的、托管在github上的静态网页。由于它的空间免费稳定， 可以用于介绍托管在github上的Project或者搭建网站。</p>
-<p>GitHub Pages 生成的网站的默认域名是 username.github.io 或者 username.github.io/project-name，但gp是支持自定义域名的：Custom Domain Name。购买域名之后，可以和默认的二级域名进行绑定。<br>教程参考：购买域名、设置DNS</p>
-<p> More info:<a href="https://pages.github.com/" target="_blank" rel="external">github pages</a>、<a href="http://cyzus.github.io/2015/06/21/github-build-blog/" target="_blank" rel="external">使用Github Pages建独立博客</a></p>
-<h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架，可以方便的生成静态网页托管在github上。</p>
-<p>推荐阅读<a href="http://ijiaober.github.io/2014/08/02/hexo/hexo-index/" target="_blank" rel="external">Hexo使用攻略</a></p>
-<p>More info:<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">hexo</a></p>
-<h2 id="NexT"><a href="#NexT" class="headerlink" title="NexT"></a>NexT</h2><p>NexT是一个Hexo扩展主题，由<a href="https://github.com/iissnan" target="_blank" rel="external">iissnan</a>开发，精于心，简于形的理念。主旨在于简洁优雅且易于使用，所以首先要尽量确保 NexT 的简洁易用性。</p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
             
+              <a href="/2016/08/05/博客搭建教程/" rel="next" title="博客搭建相关">
+                <i class="fa fa-chevron-left"></i> 博客搭建相关
+              </a>
             
-              
-                
-                <a class="post-title-link" href="/2016/08/05/崩溃捕获和收集/" itemprop="url">
-                  崩溃日志捕获和收集
-                </a>
-              
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
             
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-05T10:45:08+08:00" content="2016-08-05">
-              2016-08-05
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">In</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/tech/" itemprop="url" rel="index">
-                    <span itemprop="name">技术</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/05/崩溃捕获和收集/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/05/崩溃捕获和收集/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/05/崩溃捕获和收集/" class="leancloud_visitors" data-flag-title="崩溃日志捕获和收集">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-            <p>###崩溃捕获和收集</p>
-<p>####目的<br>通过崩溃信息的捕获和收集，可以收集到已发布应用的异常，以便开发人员发现和修改bug，对于提高软件质量有着极大的帮助。</p>
-<p>####获取系统生成的崩溃日志</p>
-<ol>
-<li>iTunes同步</li>
-<li>Xcode</li>
-<li>iTunes Connect </li>
-</ol>
-<p>以上方法中的第一和第二种必须要连接设备，这在我们将App分发到用户设备上之后是不可能实现的，第三种方法如果应用还卖得不多，或者刚上架不久，或者用户关闭了上传日志的选项，iTunes Connect账号上也可能还没有任何崩溃日志。所以显然不能通过收集系统自动生成的崩溃日志来达成我们的目的。</p>
-<p>####使用第三方统计分析工具</p>
-<p>如果是个人开发应用或者没有特殊限制的话，可以直接选择比较知名的第三方统计工具加入到工程中就万事大吉了，其中的错误日志功能完全能够满足需求，而且不需要额外准备接收服务器。</p>
-<ul>
-<li><a href="http://www.umeng.com" target="_blank" rel="external">友盟移动统计</a></li>
-<li><a href="https://www.talkingdata.com" target="_blank" rel="external">Talking Data</a></li>
-<li><a href="http://mtj.baidu.com" target="_blank" rel="external">百度移动统计</a></li>
-<li><a href="http://mta.qq.com/mta/" target="_blank" rel="external">腾讯移动统计</a></li>
-<li><a href="http://www.appannie.com/cn/" target="_blank" rel="external">App Annie</a></li>
-<li><a href="www.Flurry.com">Flurry</a></li>
-<li><a href="http://www.google.com/analytics/" target="_blank" rel="external">Google Analytics</a></li>
-</ul>
-<p>####自定义崩溃收集系统的原理及实现【SFReportSDK】</p>
-<ul>
-<li>#####启动方式及相关配置</li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SFReportManager * sfReportManager = [SFReportManager sharedSFReportManager];</div><div class="line">[sfReportManager configureWithIdentifier:@&quot;com.sf.demo&quot; delegate:self];</div><div class="line">[sfReportManager startManager];</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#define SFREPORT_VERSION @&quot;0.1&quot;</div><div class="line">#define SFREPORT_BUILD   @&quot;1&quot;</div><div class="line"></div><div class="line">#ifndef SFREPORT_CRASH_REPORTER</div><div class="line">#    define SFREPORT_CRASH_REPORTER 1</div><div class="line">#endif</div><div class="line"></div><div class="line">#ifndef SFREPORT_EVENT_REPORTER</div><div class="line">#    define SFREPORT_EVENT_REPORTER 1</div><div class="line">#endif</div></pre></td></tr></table></figure>
-<ul>
-<li>#####捕捉崩溃信息</li>
-</ul>
-<p>系统错误时会抛出一个错误信号，在我们的app启动时我们可以通过设定一个回调函数来接受并处理异常。</p>
-<p>1.） 开启异常捕获监听，用来处理程序崩溃时的回调动作</p>
-<pre><code>NSSetUncaughtExceptionHandler(&amp;uncaught_exception_handler);
-</code></pre><p>2.） 实现自己的处理函数</p>
-<pre><code>static void uncaught_exception_handler (NSException *exception){
-        //todo
-}
-</code></pre><ul>
-<li>#####记录和保存崩溃信息<br>记录日志通常会牵扯到隐私问题，要谨慎考虑哪些信息是不该被记录进日志的，例如用户的用户名和密码或者是信用卡号和密码等。以下是暂时拟出的需要记录的字段及说明。</li>
-</ul>
-<table>
-<thead>
-<tr>
-<th style="text-align:left">字段</th>
-<th style="text-align:left">说明</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Incident Identifier</td>
-<td style="text-align:left">崩溃日志唯一标识符，是一个UUID</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">CrashReporter Key</td>
-<td style="text-align:left">是与设备标识相对应的唯一键值。虽然它不是真正的设备标识符，但也是一个非常有用的情报:如果你看到100个崩溃日志的CrashReporter Key值都是相同的，或者只有少数几个不同的CrashReport值，说明这不是一个普遍的问题，只发生在一个或少数几个设备上</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">Hardware Model</td>
-<td style="text-align:left">设备类型</td>
-</tr>
-<tr>
-<td style="text-align:left">Identifier</td>
-<td style="text-align:left">应用标识符，即bundle identifier</td>
-</tr>
-<tr>
-<td style="text-align:left">Version</td>
-<td style="text-align:left">前面是build code，后面是发布版本号。</td>
-</tr>
-<tr>
-<td style="text-align:left">Code Type</td>
-<td style="text-align:left">ARM (Native)</td>
-</tr>
-<tr>
-<td style="text-align:left">User ID</td>
-<td style="text-align:left">用户ID</td>
-</tr>
-<tr>
-<td style="text-align:left">Date/Time</td>
-<td style="text-align:left">奔溃时间</td>
-</tr>
-<tr>
-<td style="text-align:left">Launch Time</td>
-<td style="text-align:left">应用启动时间 </td>
-</tr>
-<tr>
-<td style="text-align:left">OS Version</td>
-<td style="text-align:left">操作系统版本</td>
-</tr>
-<tr>
-<td style="text-align:left">Report Version</td>
-<td style="text-align:left">105</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">Exception Type</td>
-<td style="text-align:left">异常类型</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">exceptionName</td>
-<td style="text-align:left">异常类型</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">exceprionReason</td>
-<td style="text-align:left">异常原因</td>
-<td></td>
-</tr>
-<tr>
-<td style="text-align:left">CallStackSymbols</td>
-<td style="text-align:left">堆栈信息</td>
-<td></td>
-</tr>
-</tbody>
-</table>
-<p>路径：<br>/Library/Caches/com.sf.report.data/Crash/448525886.txt </p>
-<ul>
-<li><p>#####上传崩溃信息</p>
-</li>
-<li><p>######压缩</p>
-<p>  ZipArchive</p>
-</li>
-<li><p>######加密</p>
-<p>  AES</p>
-<p>  RSA</p>
-</li>
-<li><p>######上传</p>
-</li>
-</ul>
-<p><img src="http://a2.qpic.cn/psb?/V14aYoci35g1ij/HaK0CNmNKsD2uENBpfgn9uH5ZDdeLKrsKyd36UvAUgE!/b/dHRJKeAyLAAA&amp;bo=jQTLAQAAAAADB2E!&amp;rf=viewer_4" alt="crash"></p>
-
-          
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
+
+    <div class="post-spread">
       
+        <div class="ds-share flat" data-thread-key="2016/08/08/崩溃日志解析/"
+     data-title="崩溃日志解析"
+     data-content=""
+     data-url="https://liubin303.github.io/2016/08/08/崩溃日志解析/">
+  <div class="ds-share-inline">
+    <ul  class="ds-share-icons-16">
 
-  
-  
+      <li data-toggle="ds-share-icons-more"><a class="ds-more" href="javascript:void(0);">分享到：</a></li>
+      <li><a class="ds-weibo" href="javascript:void(0);" data-service="weibo">微博</a></li>
+      <li><a class="ds-qzone" href="javascript:void(0);" data-service="qzone">QQ空间</a></li>
+      <li><a class="ds-qqt" href="javascript:void(0);" data-service="qqt">腾讯微博</a></li>
+      <li><a class="ds-wechat" href="javascript:void(0);" data-service="wechat">微信</a></li>
 
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/03/hello-world/" itemprop="url">
-                  Hello World
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-03T15:05:59+08:00" content="2016-08-03">
-              2016-08-03
-            </time>
-          </span>
-
-          
-
-          
-            
-              <span class="post-comments-count">
-                &nbsp; | &nbsp;
-                <a href="/2016/08/03/hello-world/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/03/hello-world/" itemprop="commentsCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-
-          
-          
-             <span id="/2016/08/03/hello-world/" class="leancloud_visitors" data-flag-title="Hello World">
-               &nbsp; | &nbsp;
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               <span class="post-meta-item-text">visitors </span>
-               <span class="leancloud-visitors-count"></span>
-              </span>
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
-        
+    </ul>
+    <div class="ds-share-icons-more">
+    </div>
+  </div>
+</div>
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
+  </div>
 
 
           </div>
@@ -1029,6 +588,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2016/08/08/崩溃日志解析/"
+           data-title="崩溃日志解析" data-url="https://liubin303.github.io/2016/08/08/崩溃日志解析/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -1048,8 +615,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/uploads/avatar.png"
@@ -1119,6 +695,17 @@
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-6"><a class="nav-link" href="#进程信息"><span class="nav-number">1.</span> <span class="nav-text">进程信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#基本信息"><span class="nav-number">2.</span> <span class="nav-text">基本信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#异常信息"><span class="nav-number">3.</span> <span class="nav-text">异常信息</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#线程回溯"><span class="nav-number">4.</span> <span class="nav-text">线程回溯</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#动态库信息"><span class="nav-number">5.</span> <span class="nav-text">动态库信息</span></a></li></ol></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1215,6 +802,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
