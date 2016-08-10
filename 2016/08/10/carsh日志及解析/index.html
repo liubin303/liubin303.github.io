@@ -84,22 +84,28 @@
 
 
 
-<meta name="description" content="什么是崩溃日志？一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。
+<meta name="description" content="14年记录于有道笔记的老文章，有时间再修改。
+
+什么是崩溃日志？一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。
 iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的日志文件，这个文件会保存的特定系统目录下。
-崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生时各线程都在做什么，并分辨出闪退发生在哪个线程上">
+崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生">
 <meta property="og:type" content="article">
-<meta property="og:title" content="崩溃日志解析">
-<meta property="og:url" content="https://liubin303.github.io/2016/08/08/崩溃日志解析/index.html">
+<meta property="og:title" content="carsh日志及解析">
+<meta property="og:url" content="https://liubin303.github.io/2016/08/10/carsh日志及解析/index.html">
 <meta property="og:site_name" content="lucifer's blog">
-<meta property="og:description" content="什么是崩溃日志？一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。
+<meta property="og:description" content="14年记录于有道笔记的老文章，有时间再修改。
+
+什么是崩溃日志？一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。
 iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的日志文件，这个文件会保存的特定系统目录下。
-崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生时各线程都在做什么，并分辨出闪退发生在哪个线程上">
-<meta property="og:updated_time" content="2016-08-08T15:59:52.000Z">
+崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生">
+<meta property="og:updated_time" content="2016-08-10T09:05:30.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="崩溃日志解析">
-<meta name="twitter:description" content="什么是崩溃日志？一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。
+<meta name="twitter:title" content="carsh日志及解析">
+<meta name="twitter:description" content="14年记录于有道笔记的老文章，有时间再修改。
+
+什么是崩溃日志？一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。
 iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的日志文件，这个文件会保存的特定系统目录下。
-崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生时各线程都在做什么，并分辨出闪退发生在哪个线程上">
+崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生">
 
 
 
@@ -120,9 +126,9 @@ iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的
 
 
 
-  <link rel="canonical" href="https://liubin303.github.io/2016/08/08/崩溃日志解析/"/>
+  <link rel="canonical" href="https://liubin303.github.io/2016/08/10/carsh日志及解析/"/>
 
-  <title> 崩溃日志解析 | lucifer's blog </title>
+  <title> carsh日志及解析 | lucifer's blog </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="en">
@@ -282,7 +288,7 @@ iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的
             
             
               
-                崩溃日志解析
+                carsh日志及解析
               
             
           </h1>
@@ -294,8 +300,8 @@ iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">Posted on</span>
-            <time itemprop="dateCreated" datetime="2016-08-08T10:45:08+08:00" content="2016-08-08">
-              2016-08-08
+            <time itemprop="dateCreated" datetime="2016-08-10T17:03:18+08:00" content="2016-08-10">
+              2016-08-10
             </time>
           </span>
 
@@ -324,8 +330,8 @@ iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的
             
               <span class="post-comments-count">
                 &nbsp; | &nbsp;
-                <a href="/2016/08/08/崩溃日志解析/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/08/崩溃日志解析/" itemprop="commentsCount"></span>
+                <a href="/2016/08/10/carsh日志及解析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2016/08/10/carsh日志及解析/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -335,7 +341,7 @@ iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的
 
           
           
-             <span id="/2016/08/08/崩溃日志解析/" class="leancloud_visitors" data-flag-title="崩溃日志解析">
+             <span id="/2016/08/10/carsh日志及解析/" class="leancloud_visitors" data-flag-title="carsh日志及解析">
                &nbsp; | &nbsp;
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -357,7 +363,9 @@ iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的
       
 
       
-        <h2 id="什么是崩溃日志？"><a href="#什么是崩溃日志？" class="headerlink" title="什么是崩溃日志？"></a>什么是崩溃日志？</h2><p>一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。</p>
+        <p>14年记录于有道笔记的老文章，有时间再修改。</p>
+<hr>
+<h2 id="什么是崩溃日志？"><a href="#什么是崩溃日志？" class="headerlink" title="什么是崩溃日志？"></a>什么是崩溃日志？</h2><p>一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。</p>
 <p>iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的日志文件，这个文件会保存的特定系统目录下。</p>
 <p>崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生时各线程都在做什么，并分辨出闪退发生在哪个线程上和相关的原因。</p>
 <p>####从哪里能得到它？</p>
@@ -535,16 +543,16 @@ iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/05/博客搭建教程/" rel="next" title="博客搭建相关">
-                <i class="fa fa-chevron-left"></i> 博客搭建相关
+              <a href="/2016/08/10/CocoaPods安装涉及的知识和问题/" rel="next" title="CocoaPods安装涉及的知识和问题">
+                <i class="fa fa-chevron-left"></i> CocoaPods安装涉及的知识和问题
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2016/08/08/崩溃捕获和收集/" rel="prev" title="崩溃日志捕获和收集">
-                崩溃日志捕获和收集 <i class="fa fa-chevron-right"></i>
+              <a href="/2016/08/10/carsh日志捕获和上报/" rel="prev" title="carsh日志捕获和上报">
+                carsh日志捕获和上报 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -560,10 +568,10 @@ iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的
 
     <div class="post-spread">
       
-        <div class="ds-share flat" data-thread-key="2016/08/08/崩溃日志解析/"
-     data-title="崩溃日志解析"
+        <div class="ds-share flat" data-thread-key="2016/08/10/carsh日志及解析/"
+     data-title="carsh日志及解析"
      data-content=""
-     data-url="https://liubin303.github.io/2016/08/08/崩溃日志解析/">
+     data-url="https://liubin303.github.io/2016/08/10/carsh日志及解析/">
   <div class="ds-share-inline">
     <ul  class="ds-share-icons-16">
 
@@ -590,8 +598,8 @@ iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2016/08/08/崩溃日志解析/"
-           data-title="崩溃日志解析" data-url="https://liubin303.github.io/2016/08/08/崩溃日志解析/">
+      <div class="ds-thread" data-thread-key="2016/08/10/carsh日志及解析/"
+           data-title="carsh日志及解析" data-url="https://liubin303.github.io/2016/08/10/carsh日志及解析/">
       </div>
     
   </div>
