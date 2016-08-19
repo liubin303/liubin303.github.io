@@ -495,17 +495,14 @@
           
             <p>14年记录于有道笔记的老文章，有时间再修改。</p>
 <hr>
-<p>##崩溃捕获和收集</p>
-<p>###目的<br>通过崩溃信息的捕获和收集，可以收集到已发布应用的异常，以便开发人员发现和修改bug，对于提高软件质量有着极大的帮助。</p>
-<p>###获取系统生成的崩溃日志</p>
-<ol>
+<h2 id="崩溃捕获和收集"><a href="#崩溃捕获和收集" class="headerlink" title="崩溃捕获和收集"></a>崩溃捕获和收集</h2><h3 id="目的"><a href="#目的" class="headerlink" title="目的"></a>目的</h3><p>通过崩溃信息的捕获和收集，可以收集到已发布应用的异常，以便开发人员发现和修改bug，对于提高软件质量有着极大的帮助。</p>
+<h3 id="获取系统生成的崩溃日志"><a href="#获取系统生成的崩溃日志" class="headerlink" title="获取系统生成的崩溃日志"></a>获取系统生成的崩溃日志</h3><ol>
 <li>iTunes同步</li>
 <li>Xcode</li>
 <li>iTunes Connect </li>
 </ol>
 <p>以上方法中的第一和第二种必须要连接设备，这在我们将App分发到用户设备上之后是不可能实现的，第三种方法如果应用还卖得不多，或者刚上架不久，或者用户关闭了上传日志的选项，iTunes Connect账号上也可能还没有任何崩溃日志。所以显然不能通过收集系统自动生成的崩溃日志来达成我们的目的。</p>
-<p>###使用第三方统计分析工具</p>
-<p>如果是个人开发应用或者没有特殊限制的话，可以直接选择比较知名的第三方统计工具加入到工程中就万事大吉了，其中的错误日志功能完全能够满足需求，而且不需要额外准备接收服务器。</p>
+<h3 id="使用第三方统计分析工具"><a href="#使用第三方统计分析工具" class="headerlink" title="使用第三方统计分析工具"></a>使用第三方统计分析工具</h3><p>如果是个人开发应用或者没有特殊限制的话，可以直接选择比较知名的第三方统计工具加入到工程中就万事大吉了，其中的错误日志功能完全能够满足需求，而且不需要额外准备接收服务器。</p>
 <ul>
 <li><a href="http://www.umeng.com" target="_blank" rel="external">友盟移动统计</a></li>
 <li><a href="https://www.talkingdata.com" target="_blank" rel="external">Talking Data</a></li>
@@ -515,12 +512,9 @@
 <li><a href="www.Flurry.com">Flurry</a></li>
 <li><a href="http://www.google.com/analytics/" target="_blank" rel="external">Google Analytics</a></li>
 </ul>
-<p>###自定义崩溃收集系统的原理及实现【SFReportSDK】</p>
-<p>####启动方式及相关配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SFReportManager * sfReportManager = [SFReportManager sharedSFReportManager];</div><div class="line">[sfReportManager configureWithIdentifier:@&quot;com.sf.demo&quot; delegate:self];</div><div class="line">[sfReportManager startManager];</div></pre></td></tr></table></figure>
+<h3 id="自定义崩溃收集系统的原理及实现【SFReportSDK】"><a href="#自定义崩溃收集系统的原理及实现【SFReportSDK】" class="headerlink" title="自定义崩溃收集系统的原理及实现【SFReportSDK】"></a>自定义崩溃收集系统的原理及实现【SFReportSDK】</h3><h4 id="启动方式及相关配置"><a href="#启动方式及相关配置" class="headerlink" title="启动方式及相关配置"></a>启动方式及相关配置</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">SFReportManager * sfReportManager = [SFReportManager sharedSFReportManager];</div><div class="line">[sfReportManager configureWithIdentifier:@&quot;com.sf.demo&quot; delegate:self];</div><div class="line">[sfReportManager startManager];</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">#define SFREPORT_VERSION @&quot;0.1&quot;</div><div class="line">#define SFREPORT_BUILD   @&quot;1&quot;</div><div class="line"></div><div class="line">#ifndef SFREPORT_CRASH_REPORTER</div><div class="line">#    define SFREPORT_CRASH_REPORTER 1</div><div class="line">#endif</div><div class="line"></div><div class="line">#ifndef SFREPORT_EVENT_REPORTER</div><div class="line">#    define SFREPORT_EVENT_REPORTER 1</div><div class="line">#endif</div></pre></td></tr></table></figure>
-<p>####捕捉崩溃信息</p>
-<p>系统错误时会抛出一个错误信号，在我们的app启动时我们可以通过设定一个回调函数来接受并处理异常。</p>
+<h4 id="捕捉崩溃信息"><a href="#捕捉崩溃信息" class="headerlink" title="捕捉崩溃信息"></a>捕捉崩溃信息</h4><p>系统错误时会抛出一个错误信号，在我们的app启动时我们可以通过设定一个回调函数来接受并处理异常。</p>
 <ul>
 <li><p>开启异常捕获监听，用来处理程序崩溃时的回调动作</p>
 <pre><code class="objc"><span class="built_in">NSSetUncaughtExceptionHandler</span>(&amp;uncaught_exception_handler);
@@ -534,7 +528,7 @@
         <span class="comment">//todo</span>
 }
 </code></pre>
-<p>####记录和保存崩溃信息<br>记录日志通常会牵扯到隐私问题，要谨慎考虑哪些信息是不该被记录进日志的，例如用户的用户名和密码或者是信用卡号和密码等。以下是暂时拟出的需要记录的字段及说明。</p>
+<h4 id="记录和保存崩溃信息"><a href="#记录和保存崩溃信息" class="headerlink" title="记录和保存崩溃信息"></a>记录和保存崩溃信息</h4><p>记录日志通常会牵扯到隐私问题，要谨慎考虑哪些信息是不该被记录进日志的，例如用户的用户名和密码或者是信用卡号和密码等。以下是暂时拟出的需要记录的字段及说明。</p>
 <table>
 <thead>
 <tr>
@@ -606,8 +600,7 @@
 </tbody>
 </table>
 <p>路径：<br>/Library/Caches/com.sf.report.data/Crash/448525886.txt </p>
-<p>####上传崩溃信息</p>
-<p>*压缩</p>
+<h4 id="上传崩溃信息"><a href="#上传崩溃信息" class="headerlink" title="上传崩溃信息"></a>上传崩溃信息</h4><p>*压缩</p>
 <pre><code>ZipArchive
 </code></pre><p>*加密</p>
 <pre><code>AES
@@ -748,9 +741,8 @@ RSA
 <h2 id="什么是崩溃日志？"><a href="#什么是崩溃日志？" class="headerlink" title="什么是崩溃日志？"></a>什么是崩溃日志？</h2><p>一个App启动之后，用着用着就突然被iOS系统关闭，或者干脆就起不来，在打开的一瞬间关闭，这就是Crash，俗称“闪退”“崩溃”。</p>
 <p>iOS设备上的应用闪退时，操作系统会生成一个扩展名为crash的日志文件，这个文件会保存的特定系统目录下。</p>
 <p>崩溃日志上有很多有用的信息，上面有每个正在执行线程的完整堆栈跟踪信息，所以你能从中了解到闪退发生时各线程都在做什么，并分辨出闪退发生在哪个线程上和相关的原因。</p>
-<p>####从哪里能得到它？</p>
-<ul>
-<li>#####iTunes </li>
+<h4 id="从哪里能得到它？"><a href="#从哪里能得到它？" class="headerlink" title="从哪里能得到它？"></a>从哪里能得到它？</h4><ul>
+<li><h5 id="iTunes"><a href="#iTunes" class="headerlink" title="iTunes"></a>iTunes</h5></li>
 </ul>
 <p>设备与电脑上的iTunes Store同步后，会将崩溃日志保存在电脑上。根据电脑操作系统的不同，崩溃日志将保存在以下位置:</p>
 <ol>
@@ -764,39 +756,36 @@ RSA
 <p>当用户抱怨闪退时，你可以要求他让设备与iTunes同步，并根据操作系统的不同，到上述位置把崩溃日志下载下来，然后通过电子邮件发送给你。</p>
 <p>你必需尽量获取用户设备生成的所有崩溃日志。因为崩溃日志越多，就越容易诊断问题所在!</p>
 <ul>
-<li>#####Xcode</li>
+<li><h5 id="Xcode"><a href="#Xcode" class="headerlink" title="Xcode"></a>Xcode</h5></li>
 </ul>
 <p>将iOS设备连接到电脑上，然后打开Xcode。从菜单栏上选择 <code>Window</code>  菜单, 然后选择 <code>Devices</code> ,在左侧的导航面板上，点击<code>View Device Logs</code>查看设备的日志，然后查看你对应的appname的日志。</p>
 <ul>
-<li>#####App Store</li>
+<li><h5 id="App-Store"><a href="#App-Store" class="headerlink" title="App Store"></a>App Store</h5></li>
 </ul>
 <p>应用提交到App Store后，你也能从 iTunes Connect 获取到用户的崩溃日志. 登录到 iTunes Connect 上, 选择<code>Manage Your Applications</code>, 点击相应的应用, 点击应用图标下面的<code>View Details</code> 按钮, 然后点击右栏Links部分的<code>Crash Reports</code>。</p>
 <p>如果应用还卖得不多，或者刚上架不久，或者用户关闭了上传日志的选项，iTunes Connect账号上也可能还没有任何崩溃日志。</p>
-<p>####什么情况下会产生崩溃日志?</p>
-<p>#####应用违反操作系统规则</p>
-<ul>
-<li>######在启动、恢复、挂起、退出时watchdog超时</li>
+<h4 id="什么情况下会产生崩溃日志"><a href="#什么情况下会产生崩溃日志" class="headerlink" title="什么情况下会产生崩溃日志?"></a>什么情况下会产生崩溃日志?</h4><h5 id="应用违反操作系统规则"><a href="#应用违反操作系统规则" class="headerlink" title="应用违反操作系统规则"></a>应用违反操作系统规则</h5><ul>
+<li><h6 id="在启动、恢复、挂起、退出时watchdog超时"><a href="#在启动、恢复、挂起、退出时watchdog超时" class="headerlink" title="在启动、恢复、挂起、退出时watchdog超时"></a>在启动、恢复、挂起、退出时watchdog超时</h6></li>
 </ul>
 <p>从iOS 4.x开始，退出应用时，应用不会立即终止，而是退到后台。但是，如果你的应用响应不够快，操作系统有可能会终止你的应用，并产生一个崩溃日志。这些事件与下列UIApplicationDelegate方法相对应:<br>application:didFinishLaunchingWithOptions:<br>applicationWillResignActive:<br>applicationDidEnterBackground:<br>applicationWillEnterForeground:<br>applicationDidBecomeActive:<br>applicationWillTerminate:</p>
 <p>上面所有这些方法，应用只有有限的时间去完成处理。如果花费时间太长，操作系统将终止应用。</p>
 <p><em>注意: 如果你没有把需要花费时间比较长的操作(如网络访问）放在后台线程上就很容易发生这种情况。</em></p>
 <ul>
-<li>######用户强制退出</li>
+<li><h6 id="用户强制退出"><a href="#用户强制退出" class="headerlink" title="用户强制退出"></a>用户强制退出</h6></li>
 </ul>
 <p>iOS 4.x开始支持多任务。如果应用阻塞界面并停止响应,用户可以通过在主屏幕上双击Home按钮来终止应用。此时，操作应用将生成一个崩溃日志。</p>
 <p><em>注意: 双击Home按钮后，你将看到运行过的所有应用。那些应用不一定是正在运行，也不一定是被挂起。通常，用户点击Home按钮时，应用将在后台保留约10分钟，然后操作系统自动将其终止。 所以双击Home按钮显示的应用列表只是表明那是一系列过去打开过的应用。删除那些应用的图标不会产生任何崩溃日志。</em></p>
 <ul>
-<li>######低内存终止</li>
+<li><h6 id="低内存终止"><a href="#低内存终止" class="headerlink" title="低内存终止"></a>低内存终止</h6></li>
 </ul>
 <p>在前台运行的应用拥有访问和使用内存的最高优化级。然而，这并不意味着该应用能使用设备的所有可用内存 ——每个应用只能使用一部分可用内存。</p>
 <p>当内存使用达到一定程度时，操作系统将发出一个 UIApplicationDidReceiveMemoryWarningNotification 通知。同时,调用 didReceiveMemoryWarning 方法。</p>
 <p>此时，为了让应用继续正常运行，操作系统开始终止在后台的其他应用以释放一些内存。所有后台应用被终止后，如果你的应用还需要更多内存，操作系统会将你的应用也终止掉，并产生一个崩溃日志。而在这种情况下被终止的其他后台应用，不会产生崩溃日志。</p>
-<p>#####应用中有Bug<br>大多数闪退都是由于应用中有Bug，比如调用用了Objective-C对象根本不支持的方法（发送消息），非法内存访问，数组越界，参数不符合要求等。</p>
+<h5 id="应用中有Bug"><a href="#应用中有Bug" class="headerlink" title="应用中有Bug"></a>应用中有Bug</h5><p>大多数闪退都是由于应用中有Bug，比如调用用了Objective-C对象根本不支持的方法（发送消息），非法内存访问，数组越界，参数不符合要求等。</p>
 <p>这些问题在调试阶段，我们都可以很容易的通过断点和console中提供的信息快速定位并解决。</p>
 <p>但对于已发布的App，如果想重现并利用上述办法来解决，恐怕会比较费时费事。</p>
 <p>最有帮助最直接的办法就是根据出现问题时的闪退日志，分析和判断crash的原因，快速准确的定位和解决。</p>
-<p>####崩溃日志示例</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">/**********进程信息**********/</div><div class="line">Incident Identifier: 421FEFDC-E649-42E0-AC34-D3E2E3E5713D</div><div class="line">CrashReporter Key:   963c64a27bb863f790c0e751f1991b29ab541923</div><div class="line">Hardware Model:      iPhone5,2</div><div class="line">Process:             LiuLianCustomer [6694]</div><div class="line">Path:                /private/var/mobile/Containers/Bundle/Application/ACFACAB0-E67F-48A6-BBF1-6BE0209D6F1D/LiuLianCustomer.app/LiuLianCustomer</div><div class="line">Identifier:          com.LLWF.Customer.RC</div><div class="line">Version:             1936 (0.0.1)</div><div class="line">Code Type:           ARM (Native)</div><div class="line">Parent Process:      launchd [1]</div><div class="line"></div><div class="line">/**********基本信息**********/</div><div class="line">Date/Time:           2015-02-11 18:44:04.610 +0800</div><div class="line">Launch Time:         2015-02-11 18:30:28.148 +0800</div><div class="line">OS Version:          iOS 8.1.2 (12B440)</div><div class="line">Report Version:      105</div><div class="line"></div><div class="line">/**********异常信息**********/</div><div class="line">Exception Type:  EXC_CRASH (SIGABRT)</div><div class="line">Exception Codes: 0x0000000000000000, 0x0000000000000000</div><div class="line">Triggered by Thread:  0</div><div class="line"></div><div class="line">/**********线程回溯**********/</div><div class="line">Thread 0 name:  Dispatch queue: com.apple.main-thread</div><div class="line"></div><div class="line">/**********堆栈信息**********/</div><div class="line">Thread 0 Crashed:</div><div class="line">0   libsystem_kernel.dylib        	0x36111dfc __pthread_kill + 8</div><div class="line">1   libsystem_pthread.dylib       	0x3618fd32 pthread_kill + 58</div><div class="line">2   libsystem_c.dylib             	0x360b1904 abort + 72</div><div class="line">3   libc++abi.dylib               	0x353ef9c4 abort_message + 84</div><div class="line">4   libc++abi.dylib               	0x3540966c default_terminate_handler() + 264</div><div class="line">5   libobjc.A.dylib               	0x35acbf22 _objc_terminate() + 190</div><div class="line">6   libc++abi.dylib               	0x35406de0 std::__terminate(void (*)()) + 76</div><div class="line">7   libc++abi.dylib               	0x354068aa __cxa_rethrow + 98</div><div class="line">8   libobjc.A.dylib               	0x35acbdce objc_exception_rethrow + 38</div><div class="line">9   CoreFoundation                	0x28227458 CFRunLoopRunSpecific + 628</div><div class="line">10  CoreFoundation                	0x282271ce CFRunLoopRunInMode + 102</div><div class="line">11  GraphicsServices              	0x2f6250a4 GSEventRunModal + 132</div><div class="line">12  UIKit                         	0x2b836f9c UIApplicationMain + 1436</div><div class="line">13  LiuLianCustomer               	0x000dbfe6 0x7f000 + 380902</div><div class="line">14  libdyld.dylib                 	0x3604baac start + 0</div><div class="line"></div><div class="line">/**********动态库信息**********/</div><div class="line">Binary Images:</div><div class="line">0x7f000 - 0x2b6fff LiuLianCustomer armv7  &lt;20c3e1f8927c3f008d675262a64594ba&gt; /var/mobile/Containers/Bundle/Application/ACFACAB0-E67F-48A6-BBF1-6BE0209D6F1D/LiuLianCustomer.app/LiuLianCustomer</div><div class="line">0x1fefb000 - 0x1ff1efff dyld armv7s  &lt;8ffd813a380c333bbd4a25e1dbe05715&gt; /usr/lib/dyld</div><div class="line">0x26955000 - 0x2695dfff AccessibilitySettingsLoader armv7s  &lt;eb1b9f48c19f37fc95ef2e98c0af1cb4&gt; /System/Library/AccessibilityBundles/AccessibilitySettingsLoader.bundle/AccessibilitySettingsLoader</div><div class="line">0x26dab000 - 0x26f17fff AVFoundation armv7s  &lt;23a20af23f733b39b5c87059c080f9f7&gt; /System/Library/Frameworks/AVFoundation.framework/AVFoundation</div><div class="line">0x26f18000 - 0x26f76fff libAVFAudio.dylib armv7s  &lt;e3f677adf77d37baa08716b5d334486f&gt; /System/Library/Frameworks/AVFoundation.framework/libAVFAudio.dylib</div><div class="line">0x26fb0000 - 0x26fb0fff Accelerate armv7s  &lt;3c10ee15d8363fa58b719f2abca91b06&gt; /System/Library/Frameworks/Accelerate.framework/Accelerate</div></pre></td></tr></table></figure>
+<h4 id="崩溃日志示例"><a href="#崩溃日志示例" class="headerlink" title="崩溃日志示例"></a>崩溃日志示例</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line">/**********进程信息**********/</div><div class="line">Incident Identifier: 421FEFDC-E649-42E0-AC34-D3E2E3E5713D</div><div class="line">CrashReporter Key:   963c64a27bb863f790c0e751f1991b29ab541923</div><div class="line">Hardware Model:      iPhone5,2</div><div class="line">Process:             LiuLianCustomer [6694]</div><div class="line">Path:                /private/var/mobile/Containers/Bundle/Application/ACFACAB0-E67F-48A6-BBF1-6BE0209D6F1D/LiuLianCustomer.app/LiuLianCustomer</div><div class="line">Identifier:          com.LLWF.Customer.RC</div><div class="line">Version:             1936 (0.0.1)</div><div class="line">Code Type:           ARM (Native)</div><div class="line">Parent Process:      launchd [1]</div><div class="line"></div><div class="line">/**********基本信息**********/</div><div class="line">Date/Time:           2015-02-11 18:44:04.610 +0800</div><div class="line">Launch Time:         2015-02-11 18:30:28.148 +0800</div><div class="line">OS Version:          iOS 8.1.2 (12B440)</div><div class="line">Report Version:      105</div><div class="line"></div><div class="line">/**********异常信息**********/</div><div class="line">Exception Type:  EXC_CRASH (SIGABRT)</div><div class="line">Exception Codes: 0x0000000000000000, 0x0000000000000000</div><div class="line">Triggered by Thread:  0</div><div class="line"></div><div class="line">/**********线程回溯**********/</div><div class="line">Thread 0 name:  Dispatch queue: com.apple.main-thread</div><div class="line"></div><div class="line">/**********堆栈信息**********/</div><div class="line">Thread 0 Crashed:</div><div class="line">0   libsystem_kernel.dylib        	0x36111dfc __pthread_kill + 8</div><div class="line">1   libsystem_pthread.dylib       	0x3618fd32 pthread_kill + 58</div><div class="line">2   libsystem_c.dylib             	0x360b1904 abort + 72</div><div class="line">3   libc++abi.dylib               	0x353ef9c4 abort_message + 84</div><div class="line">4   libc++abi.dylib               	0x3540966c default_terminate_handler() + 264</div><div class="line">5   libobjc.A.dylib               	0x35acbf22 _objc_terminate() + 190</div><div class="line">6   libc++abi.dylib               	0x35406de0 std::__terminate(void (*)()) + 76</div><div class="line">7   libc++abi.dylib               	0x354068aa __cxa_rethrow + 98</div><div class="line">8   libobjc.A.dylib               	0x35acbdce objc_exception_rethrow + 38</div><div class="line">9   CoreFoundation                	0x28227458 CFRunLoopRunSpecific + 628</div><div class="line">10  CoreFoundation                	0x282271ce CFRunLoopRunInMode + 102</div><div class="line">11  GraphicsServices              	0x2f6250a4 GSEventRunModal + 132</div><div class="line">12  UIKit                         	0x2b836f9c UIApplicationMain + 1436</div><div class="line">13  LiuLianCustomer               	0x000dbfe6 0x7f000 + 380902</div><div class="line">14  libdyld.dylib                 	0x3604baac start + 0</div><div class="line"></div><div class="line">/**********动态库信息**********/</div><div class="line">Binary Images:</div><div class="line">0x7f000 - 0x2b6fff LiuLianCustomer armv7  &lt;20c3e1f8927c3f008d675262a64594ba&gt; /var/mobile/Containers/Bundle/Application/ACFACAB0-E67F-48A6-BBF1-6BE0209D6F1D/LiuLianCustomer.app/LiuLianCustomer</div><div class="line">0x1fefb000 - 0x1ff1efff dyld armv7s  &lt;8ffd813a380c333bbd4a25e1dbe05715&gt; /usr/lib/dyld</div><div class="line">0x26955000 - 0x2695dfff AccessibilitySettingsLoader armv7s  &lt;eb1b9f48c19f37fc95ef2e98c0af1cb4&gt; /System/Library/AccessibilityBundles/AccessibilitySettingsLoader.bundle/AccessibilitySettingsLoader</div><div class="line">0x26dab000 - 0x26f17fff AVFoundation armv7s  &lt;23a20af23f733b39b5c87059c080f9f7&gt; /System/Library/Frameworks/AVFoundation.framework/AVFoundation</div><div class="line">0x26f18000 - 0x26f76fff libAVFAudio.dylib armv7s  &lt;e3f677adf77d37baa08716b5d334486f&gt; /System/Library/Frameworks/AVFoundation.framework/libAVFAudio.dylib</div><div class="line">0x26fb0000 - 0x26fb0fff Accelerate armv7s  &lt;3c10ee15d8363fa58b719f2abca91b06&gt; /System/Library/Frameworks/Accelerate.framework/Accelerate</div></pre></td></tr></table></figure>
 <h6 id="进程信息"><a href="#进程信息" class="headerlink" title="进程信息"></a>进程信息</h6><ol>
 <li><p>Incident Identifier 是崩溃报告的唯一标识符。</p>
 </li>
@@ -825,11 +814,11 @@ RSA
 <li>第四部分分为两列，基地址和偏移地址。此处基地址为0x7f000，偏移地址为380902。基地址指向crash的模块（也是模块的load地址）如UIKit。偏移地址指向crash代码的行数。</li>
 </ol>
 <h6 id="动态库信息"><a href="#动态库信息" class="headerlink" title="动态库信息"></a>动态库信息</h6><p>这些信息包括动态库名称、UUID、模块起始地址、模块结束地址、指令集种类、安装路径等信息。</p>
-<p>####符号化Symbolication<br>第一次看到崩溃日志上的回溯时，你或许会觉得它没什么意义。我们习惯使用方法名和行数，而非像这样的神秘位置:</p>
+<h4 id="符号化Symbolication"><a href="#符号化Symbolication" class="headerlink" title="符号化Symbolication"></a>符号化Symbolication</h4><p>第一次看到崩溃日志上的回溯时，你或许会觉得它没什么意义。我们习惯使用方法名和行数，而非像这样的神秘位置:</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">13  SFtest                        	0x000ce3d6 0xc7000 + 29654</div></pre></td></tr></table></figure>
 <p>将这些十六进制地址转化成方法名称和行数的过程称之为符号化。</p>
 <ul>
-<li>#####Xcode</li>
+<li><h5 id="Xcode-1"><a href="#Xcode-1" class="headerlink" title="Xcode"></a>Xcode</h5></li>
 </ul>
 <p>从Xcode获取崩溃日志后过几秒钟，崩溃日志将被自动符号化。上面那行被符号化后的版本如下 :</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">2   CoreFoundation                	0x25dcec30 -[__NSArrayI objectAtIndex:] + 176</div><div class="line">3   SFtest                        	0x000133c4 -[MainViewController viewDidLoad] (MainViewController.m:79)</div></pre></td></tr></table></figure>
@@ -837,7 +826,7 @@ RSA
 <p>注意: 你必需同时保留应用二进制文件和.dSYM文件才能将崩溃日志完整符号化。每次提交到iTunes Connect的构建都必需归档。.dSYM文件和二进制文件是特定绑定于每一次构建和后续构建的，即使来自相同的源代码文件，每一次构建也与其他构建不同，不能相互替换。</p>
 <hr>
 <ul>
-<li>#####atos</li>
+<li><h5 id="atos"><a href="#atos" class="headerlink" title="atos"></a>atos</h5></li>
 </ul>
 <p>atos就是address to symbol，把地址翻译成符号。是苹果提供的符号化工具，在Mac OS系统下默认安装。</p>
 <p>终端下面执行以下命令</p>
@@ -850,7 +839,7 @@ RSA
 </ul>
 <hr>
 <ul>
-<li>#####symbolicatecrash</li>
+<li><h5 id="symbolicatecrash"><a href="#symbolicatecrash" class="headerlink" title="symbolicatecrash"></a>symbolicatecrash</h5></li>
 </ul>
 <p>symbolicatecrash是Xcode自带的一个分析工具，可以通过机器上的崩溃日志和应用的.dSYM文件定位发生崩溃的位置，把crash日志中的地址替换成代码相应位置。</p>
 <p>使用方法:</p>
@@ -862,7 +851,7 @@ RSA
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">symbolicatecrash xxx.crash xxx.dSYM &gt; xxx.crash</div></pre></td></tr></table></figure>
 <hr>
 <ul>
-<li>#####dwarfdump</li>
+<li><h5 id="dwarfdump"><a href="#dwarfdump" class="headerlink" title="dwarfdump"></a>dwarfdump</h5></li>
 </ul>
 <p>使用dwarfdump验证xxx.crash、xxx.app和xxx.dSYM三者的uuid是否一致。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ dwarfdump --uuid appName.app/appName</div></pre></td></tr></table></figure>
@@ -1000,8 +989,7 @@ RSA
             <p>前几天因为办公电脑出问题换了电脑，然后需要重新装cocoapods，发现每次安装都有些小问题要去网上搜，这次把问题记下来，方便下次查阅。</p>
 <hr>
 <h3 id="CocoaPods"><a href="#CocoaPods" class="headerlink" title="CocoaPods"></a><a href="https://cocoapods.org/" target="_blank" rel="external">CocoaPods</a></h3><p>CocoaPods是一个用ruby实现的iOS项目依赖管理工具，<a href="https://github.com/CocoaPods/CocoaPods" target="_blank" rel="external">Github地址</a>。<br>在使用CocoaPods之前，开发项目需要用到第三方开源库的时候，我们需要<br>1.把开源库的源代码复制到项目中<br>2.添加一些依赖框架和动态库<br>3.设置-ObjC，-fno-objc-arc等参数<br>4.管理他们的更新<br>在使用CocoaPods后，我们只需要把用到的开源库放到一个名为Podfile的文件中，然后执行pod install.Cocoapods就会自动将这些第三方开源库的源码下载下来，并且为我们的工程设置好响应的系统依赖和编译参数。<br>CocoaPods的原理是将所有的依赖库都放到另一个名为Pods的项目中，然后让主项目依赖Pods项目，这样，源码管理工作都从主项目移到了Pods项目中。Pods项目最终会编译成一个名为libPods.a的文件，主项目只需要依赖这个.a文件即可。</p>
-<p>####安装</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo gem update --system</div></pre></td></tr></table></figure>
+<h4 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo gem update --system</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ sudo gem install cocoapods</div></pre></td></tr></table></figure>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">ERROR: Could not find a valid gem &apos;cocoapods&apos; (&gt;= 0), here is why:</div><div class="line">Unable to download data from https://rubygems.org/ - Errno::ETIMEDOUT: Operation timed out - connect(2) (https://rubygems.org/latest_specs.4.8.gz)</div><div class="line">ERROR: Possible alternatives: cocoa pods</div></pre></td></tr></table></figure>
 <p>如果提示以上错误是因为ruby的软件源rubygems.org因为使用亚马逊的云服务，被天朝屏蔽了，需要切换到<a href="https://ruby.taobao.org/" target="_blank" rel="external">淘宝提供的ruby源镜像</a>。可参照下面gem介绍部分的配置。</p>
@@ -1168,8 +1156,9 @@ RSA
 <p> More info:<a href="https://pages.github.com/" target="_blank" rel="external">github pages</a>、<a href="http://cyzus.github.io/2015/06/21/github-build-blog/" target="_blank" rel="external">使用Github Pages建独立博客</a></p>
 <h2 id="Hexo"><a href="#Hexo" class="headerlink" title="Hexo"></a>Hexo</h2><p>Hexo 是一个简单地、轻量地、基于Node的一个静态博客框架，可以方便的生成静态网页托管在github上。</p>
 <p>推荐阅读<a href="http://ijiaober.github.io/2014/08/02/hexo/hexo-index/" target="_blank" rel="external">Hexo使用攻略</a></p>
-<p>More info:<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">hexo</a></p>
-<h2 id="NexT"><a href="#NexT" class="headerlink" title="NexT"></a>NexT</h2><p>NexT是一个Hexo扩展主题，由<a href="https://github.com/iissnan" target="_blank" rel="external">iissnan</a>开发，精于心，简于形的理念。主旨在于简洁优雅且易于使用，所以首先要尽量确保 NexT 的简洁易用性。</p>
+<p>More info:<a href="https://hexo.io/zh-cn/docs/" target="_blank" rel="external">Hexo</a></p>
+<h2 id="NexT"><a href="#NexT" class="headerlink" title="NexT"></a>NexT</h2><p>NexT是一个Hexo扩展主题，由<a href="https://github.com/iissnan" target="_blank" rel="external">iissnan</a>开发，精于心，简于形的理念。主旨在于简洁优雅且易于使用，所以首先要尽量确保 NexT 的简洁易用性。<br>More info:<a href="http://theme-next.iissnan.com/" target="_blank" rel="external">NexT</a></p>
+<h2 id="三方插件"><a href="#三方插件" class="headerlink" title="三方插件"></a>三方插件</h2><p>评论系统:<a href="http://duoshuo.com/" target="_blank" rel="external">多说</a><br>阅读次数统计:<a href="https://leancloud.cn/" target="_blank" rel="external">LeanCloud</a><br>搜索服务:<a href="https://swiftype.com/" target="_blank" rel="external">Swiftype</a></p>
 
           
         
