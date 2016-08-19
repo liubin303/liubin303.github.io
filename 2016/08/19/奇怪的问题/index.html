@@ -86,23 +86,29 @@
 
 <meta name="description" content="记录一些奇奇怪怪的问题
 
-##Git
-12345fatal: Unable to create &amp;apos;/Users/Luc1fer/lawMonkey-iOS/.git/index.lock&amp;apos;: File exists.If no other git process is currently running, this probably means agit process cr">
+Git
+git提交时报如下错
+
+12345fatal: Unable to create &amp;apos;/Users/Luc1fer/lawMonkey-iOS/.git/index.lock&amp;apos;: File exists.If no other git process is currently running, this probably means agit">
 <meta property="og:type" content="article">
 <meta property="og:title" content="奇怪的问题">
 <meta property="og:url" content="https://liubin303.github.io/2016/08/19/奇怪的问题/index.html">
 <meta property="og:site_name" content="lucifer's blog">
 <meta property="og:description" content="记录一些奇奇怪怪的问题
 
-##Git
-12345fatal: Unable to create &amp;apos;/Users/Luc1fer/lawMonkey-iOS/.git/index.lock&amp;apos;: File exists.If no other git process is currently running, this probably means agit process cr">
-<meta property="og:updated_time" content="2016-08-19T10:34:36.000Z">
+Git
+git提交时报如下错
+
+12345fatal: Unable to create &amp;apos;/Users/Luc1fer/lawMonkey-iOS/.git/index.lock&amp;apos;: File exists.If no other git process is currently running, this probably means agit">
+<meta property="og:updated_time" content="2016-08-19T10:37:45.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="奇怪的问题">
 <meta name="twitter:description" content="记录一些奇奇怪怪的问题
 
-##Git
-12345fatal: Unable to create &amp;apos;/Users/Luc1fer/lawMonkey-iOS/.git/index.lock&amp;apos;: File exists.If no other git process is currently running, this probably means agit process cr">
+Git
+git提交时报如下错
+
+12345fatal: Unable to create &amp;apos;/Users/Luc1fer/lawMonkey-iOS/.git/index.lock&amp;apos;: File exists.If no other git process is currently running, this probably means agit">
 
 
 
@@ -363,9 +369,13 @@
         <hr>
 <p>记录一些奇奇怪怪的问题</p>
 <hr>
-<p>##Git</p>
+<h2 id="Git"><a href="#Git" class="headerlink" title="Git"></a>Git</h2><ul>
+<li>git提交时报如下错</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">fatal: Unable to create &apos;/Users/Luc1fer/lawMonkey-iOS/.git/index.lock&apos;: File exists.</div><div class="line"></div><div class="line">If no other git process is currently running, this probably means a</div><div class="line">git process crashed in this repository earlier. Make sure no other git</div><div class="line">process is running and remove the file manually to continue.</div></pre></td></tr></table></figure>
-<p>解决方案</p>
+<ul>
+<li>解决方案</li>
+</ul>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">rm -f ./.git/index.lock</div></pre></td></tr></table></figure>
 
       
@@ -584,7 +594,7 @@
               
             
             
-              <p class="post-toc-empty">This post does not have a Table of Contents</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git"><span class="nav-number">1.</span> <span class="nav-text">Git</span></a></li></ol></div>
             
           </div>
         </section>
