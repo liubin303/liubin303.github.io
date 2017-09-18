@@ -1,3 +1,9 @@
+[首页](../index.html)
+[上一页](javascript:history.back(-1))
+
+-------
+
+
 # 装备介绍
 
 * [战士装备](战士.html)
